@@ -2,7 +2,7 @@ package game.logic_layer.takeable.food
 
 import game.logic_layer.clock.Clock
 import game.logic_layer.creature.Creature
-import game.logic_layer.map.Appereance
+import game.logic_layer.map.Appearance
 import game.logic_layer.unit.Position
 
 class NormalFood(override val position: Position) : Food() {
@@ -10,7 +10,7 @@ class NormalFood(override val position: Position) : Food() {
         creature: Creature, clock: Clock -> creature
     }
 
-    override val appereance = Appereance(
-        listOf()
+    override val appearance = Appearance(
+
     )
 }
