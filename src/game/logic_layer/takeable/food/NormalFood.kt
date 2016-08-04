@@ -9,8 +9,8 @@ class NormalFood(override val position: Position) : Food() {
     override val effect = {
         creature: Creature, clock: Clock -> creature
     }
-    
-    override val appereance = Appereance(
 
+    override val appereance = Appereance(
+        listOf()
     )
 }

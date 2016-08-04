@@ -3,6 +3,16 @@
   <component name="issues">
     <option name="index">
       <map>
+        <entry key="/Dummy.txt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="/fragment.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../../4. Semester/RN/Praktikum/FPK/Snake/src/Main.java">
           <value>
             <set />
@@ -269,6 +279,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/src/tests/logic_layer/creature/SnakeTest.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/tests/logic_layer/unit/NatTest.kt">
           <value>
             <set />
           </value>

@@ -5,14 +5,15 @@ import game.logic_layer.intelligence.Intelligence
 import game.logic_layer.takeable.food.NormalFood
 import game.logic_layer.unit.Position
 import game.logic_layer.map.EmptyMap
+import game.logic_layer.unit.Nat
 
 class NormalLevel(playerIntelligence: Intelligence) : Level {
     private val map = EmptyMap(
             listOf(
-                    NormalSnake(Position(0, 0), playerIntelligence)
+                    NormalSnake(Position(Nat(0), Nat(0)), playerIntelligence)
             ),
             listOf(
-                    NormalFood(Position(0, 0))
+                    NormalFood(Position(Nat(0), Nat(0)))
             )
     )
 

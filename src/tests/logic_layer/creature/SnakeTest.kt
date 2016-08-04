@@ -14,6 +14,7 @@ import org.junit.Assert.assertEquals
  */
 class SnakeTest private constructor() {
 
+/*
     /**
      * A list of all snakes possible to create. This
      */
@@ -52,5 +53,5 @@ class SnakeTest private constructor() {
     /*-----------------------------------------------------
     private helper
     -----------------------------------------------------*/
-
+*/
 }

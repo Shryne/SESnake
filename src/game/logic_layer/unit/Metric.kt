@@ -3,7 +3,7 @@ package game.logic_layer.unit
 /**
  * Created by Seven on 23.06.2016.
  */
-data class Position(val x: Int, val y: Int) {
+data class Position(val x: Nat, val y: Nat) {
 
 }
 
@@ -26,37 +26,21 @@ data class Coordinate2d(val x: Nat, val y: Nat) {
 
 }
 
+class Nat(val value: Int) : Number(), Comparable<Nat> {
+    override fun compareTo(other: Nat) =
+        value.compareTo(other.toInt())
 
-class Nat : Number(), Comparable<Nat> {
-    override fun compareTo(other: Nat): Int {
-        throw UnsupportedOperationException()
-    }
+    override fun toByte() = value.toByte()
+    override fun toChar() = value.toChar()
+    override fun toDouble() = value.toDouble()
+    override fun toFloat() = value.toFloat()
+    override fun toInt() = value.toInt()
+    override fun toLong() = value.toLong()
+    override fun toShort() = value.toShort()
 
-    override fun toByte(): Byte {
-        throw UnsupportedOperationException()
-    }
-
-    override fun toChar(): Char {
-        throw UnsupportedOperationException()
-    }
-
-    override fun toDouble(): Double {
-        throw UnsupportedOperationException()
-    }
-
-    override fun toFloat(): Float {
-        throw UnsupportedOperationException()
-    }
-
-    override fun toInt(): Int {
-        throw UnsupportedOperationException()
-    }
-
-    override fun toLong(): Long {
-        throw UnsupportedOperationException()
-    }
-
-    override fun toShort(): Short {
-        throw UnsupportedOperationException()
-    }
+    operator fun plus(other: Nat) = Nat(value + other.toInt())
+    operator fun minus(other: Nat) = Nat(value - other.toInt())
+    operator fun times(other: Nat) = Nat(value * other.toInt())
+    operator fun div(other: Nat) = Nat(value / other.toInt())
+    operator fun mod(other: Nat) = Nat(value % other.toInt())
 }
