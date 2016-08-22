@@ -9,6 +9,8 @@ interface WithAppearance {
     val appearance: Appearance
 }
 
+data class Part(val position: Position, val filling: Filling)
+
 /**
  * Corresponds to the filling of a field in the grid.
  */
@@ -48,10 +50,9 @@ enum class Filling {
  *
  * precondition: lines.all { line -> lines.all { line.size == it.size } }
  */
-class Appearance(private val position: Position, private vararg val lines: Line) {
-    private val width = lines.getOrElse(0) { i -> emptyLine(0) }.size
-
+class Appearance(private vararg val parts: Part) {
     init {
+        /*
         lines.forEach {
             line ->
             lines.forEach {
@@ -62,37 +63,22 @@ class Appearance(private val position: Position, private vararg val lines: Line)
                 }
             }
         }
+        */
     }
 
     /**
      * Returns the Fillment in the given Coordinate.
      */
-    operator fun get(x: Int, y: Int) = lines[x][y]
+    operator fun get(x: Int, y: Int) = 0
 
-    /**
-     * @param appearance To be put on this appearance. This has to fit
-     * inside this Appearance -> The position + lines have to be inside
-     * this appearance.
-     * @return An Appearance combined with the given appearance.
-     * @throws IllegalArgumentException If appearance doesn't fit in
-     * this Appearance.
-     */
-    fun with(appearance: Appearance) =
-            Appearance(
-                    position,
-                    lines.mapIndexed { i, line ->
-                        if (contains(i.asPosition())) {
-                            
-                        }
-                    }
-            )
+    operator fun plus(other: Appearance) =
+        Appearance(*parts, *other.parts)
+
 
     //fun min(other: Appearance) = other.
 
-    fun forEach(action: (Line) -> Unit) {
-        lines.forEach { action(it) }
-    }
-
+    fun forEach(action: (Part) -> Unit) =
+            parts.forEach { action(it) }
 
     /**
      * Returns true, if this and the given Visual have at
@@ -105,30 +91,4 @@ class Appearance(private val position: Position, private vararg val lines: Line)
     /*#####################################################
     private helper
     #####################################################*/
-
-    private fun Int.asPosition() =
-            Position(Nat(this % width), Nat(this / width))
 }
-
-fun emptyAppearance(width: Int, height: Int) =
-        Appearance(*Array(height, { emptyLine(height) }))
-
-/**
- * A line inside the Appearance class.
- */
-class Line(private vararg val dataLine: Filling) {
-    val size = dataLine.size
-    operator fun get(index: Int) = dataLine[index]
-
-    fun forEach(action: (Filling) -> Unit) =
-            dataLine.forEach { action(it) }
-
-    operator fun plus(other: Line) =
-            Line()
-}
-
-fun emptyLine(width: Int) =
-        Line(*Array(width, { Filling.EMPTY }))
-
-private operator fun Array<Line>.get(x: Int, y: Int) =
-        this[x][y]

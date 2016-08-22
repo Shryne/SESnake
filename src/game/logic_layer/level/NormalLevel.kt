@@ -7,6 +7,7 @@ import game.logic_layer.takeable.food.NormalFood
 import game.logic_layer.unit.Position
 import game.logic_layer.map.EmptyMap
 import game.logic_layer.unit.Nat
+import game.logic_layer.unit.Size
 import java.time.Clock
 
 class NormalLevel(playerIntelligence: (creature: Creature, clock: Clock) -> Creature) : Level {
@@ -19,6 +20,7 @@ class NormalLevel(playerIntelligence: (creature: Creature, clock: Clock) -> Crea
             )
     )
 
+    override val size: Size = map.size
     override val appearance = map.appearance;
 
     override fun sequence() {
