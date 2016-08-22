@@ -27,6 +27,16 @@ data class Coordinate2d(val x: Nat, val y: Nat) {
 }
 
 class Nat(val value: Int) : Number(), Comparable<Nat> {
+    /**
+     * Returns the smaller value.
+     */
+    fun min(other: Nat) = Nat(Math.min(value, other.value))
+
+    /**
+     * Returns the greater value.
+     */
+    fun max(other: Nat) = Nat(Math.max(value, other.value))
+
     override fun compareTo(other: Nat) =
         value.compareTo(other.toInt())
 
@@ -34,13 +44,13 @@ class Nat(val value: Int) : Number(), Comparable<Nat> {
     override fun toChar() = value.toChar()
     override fun toDouble() = value.toDouble()
     override fun toFloat() = value.toFloat()
-    override fun toInt() = value.toInt()
+    override fun toInt() = value
     override fun toLong() = value.toLong()
     override fun toShort() = value.toShort()
 
-    operator fun plus(other: Nat) = Nat(value + other.toInt())
-    operator fun minus(other: Nat) = Nat(value - other.toInt())
-    operator fun times(other: Nat) = Nat(value * other.toInt())
-    operator fun div(other: Nat) = Nat(value / other.toInt())
-    operator fun mod(other: Nat) = Nat(value % other.toInt())
+    operator fun plus(other: Nat) = Nat(value + other.value)
+    operator fun minus(other: Nat) = Nat(value - other.value)
+    operator fun times(other: Nat) = Nat(value * other.value)
+    operator fun div(other: Nat) = Nat(value / other.value)
+    operator fun mod(other: Nat) = Nat(value % other.value)
 }

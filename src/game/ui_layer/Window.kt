@@ -19,7 +19,9 @@ class Window(settings: WindowSettings, firstScene: Scene) {
         window.defaultCloseOperation = JFrame.EXIT_ON_CLOSE
         window.size = Dimension(settings.width, settings.height)
         window.isVisible = true
+        window.isResizable = false
         window.add(firstScene)
+        window.setLocationRelativeTo(null)
     }
 
     /**

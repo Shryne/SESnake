@@ -19,6 +19,7 @@ class NormalLevel(playerIntelligence: (creature: Creature, clock: Clock) -> Crea
             )
     )
 
+    override val appearance = map.appearance;
 
     override fun sequence() {
         throw UnsupportedOperationException()

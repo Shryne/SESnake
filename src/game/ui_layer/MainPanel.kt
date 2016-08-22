@@ -11,9 +11,9 @@ private const val RW = 800
 private const val RH = 600
 
 fun main(args: Array<String>) {
-    LevelPanel(WindowSettings(RW, RH, TITLE), NormalLevel(
+    Window(WindowSettings(RW, RH, TITLE), LevelPanel(NormalLevel(
             { creature, clock -> creature }
-    ))
+    )))
 }
 
 /**
